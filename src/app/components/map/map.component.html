@@ -1,0 +1,74 @@
+<div class="containt mb-3">
+  <div class="ui form">
+    <div class="Inline fields">
+      <label for="fruit">Select Case Type : </label>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #confirmed
+            type="radio"
+            id="confirmed"
+            value="confirmed"
+            name="casetype"
+            checked
+            tabindex="0"
+            class="form-check-input"
+            style="color: blue;"
+            (click)="updateChart(confirmed.value)"
+          />
+          <label for="confirmed" style="color: blue;">Confirmed</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #recovered
+            type="radio"
+            id="recovered"
+            value="recovered"
+            name="casetype"
+            tabindex="0"
+            class="hidden"
+            (click)="updateChart(recovered.value)"
+          />
+          <label for="recovered" style="color: rgb(0, 255, 13);"
+            >Recovered</label
+          >
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #active
+            type="radio"
+            id="active"
+            value="active"
+            name="casetype"
+            tabindex="0"
+            class="hidden"
+            (click)="updateChart(active.value)"
+          />
+          <label for="active" style="color: rgb(1, 174, 180);">Active</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #deaths
+            type="radio"
+            id="deaths"
+            value="deaths"
+            name="casetype"
+            tabindex="0"
+            class="hidden"
+            (click)="updateChart(deaths.value)"
+          />
+          <label for="deaths" style="color: rgb(255, 51, 0);">Deaths</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="map" id="map"></div>
+<!-- <span>{{ getData(mapData) }}</span> -->

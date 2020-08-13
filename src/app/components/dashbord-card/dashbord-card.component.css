@@ -1,0 +1,16 @@
+.lable {
+  text-align: center;
+}
+.header {
+  font-size: 20px;
+  font-weight: bold;
+}
+.value {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.value__1 {
+  margin: 5px;
+  font-weight: 600;
+}

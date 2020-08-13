@@ -1,0 +1,182 @@
+<div class="containt">
+  <div class="header">
+    <h3 class="heding">Covid-19 Worldwide</h3>
+  </div>
+
+  <app-dashbord-card
+    [totalConfirmed]="totalConfirmed"
+    [totalRecovered]="totalRecovered"
+    [totalActive]="totalActive"
+    [totalDeaths]="totalDeaths"
+  ></app-dashbord-card>
+</div>
+
+<div class="containt mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="ui form">
+        <div class="Inline fields">
+          <label for="fruit">Select Case Type : </label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #c
+                type="radio"
+                id="c"
+                value="c"
+                name="casetype"
+                checked
+                tabindex="0"
+                class="form-check-input"
+                style="color: blue;"
+                (click)="updateChart(c.value)"
+              />
+              <label for="c" style="color: blue;">Confirmed</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #r
+                type="radio"
+                id="r"
+                value="r"
+                name="casetype"
+                tabindex="0"
+                class="hidden"
+                (click)="updateChart(r.value)"
+              />
+              <label for="r" style="color: rgb(0, 255, 13);">Recovered</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #a
+                type="radio"
+                id="a"
+                value="a"
+                name="casetype"
+                tabindex="0"
+                class="hidden"
+                (click)="updateChart(a.value)"
+              />
+              <label for="a" style="color: rgb(1, 174, 180);">Active</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #d
+                type="radio"
+                id="d"
+                value="d"
+                name="casetype"
+                tabindex="0"
+                class="hidden"
+                (click)="updateChart(d.value)"
+              />
+              <label for="d" style="color: rgb(255, 51, 0);">Deaths</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="containt mt-2">
+  <div class="card-deck">
+    <div class="card shadow" style="width: auto;">
+      <div class="card-body">
+        <google-chart
+          class="chart"
+          [title]="chart.PieChart_title"
+          [type]="chart.PieChart"
+          [data]="dataTable"
+          [options]="chart.options"
+        ></google-chart>
+      </div>
+    </div>
+    <div class="card shadow">
+      <div class="card-body" style="width: auto;">
+        <google-chart
+          class="chart"
+          [title]="chart.ColumnChart_title"
+          [type]="chart.ColumnChart"
+          [data]="dataTable"
+          [options]="chart.options"
+        ></google-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="containt mt-5">
+  <div class="row">
+    <div class="card shadow col-sm-8 col-12 mt-2" style="width: auto;">
+      <div class="card-body">
+        <app-map></app-map>
+      </div>
+    </div>
+    <div class="card shadow col-sm-4 col-12 mt-2" style="width: auto;">
+      <div class="card-body">
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+          <table class="table table-bordered table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col" style="color: blue;">Confirmed</th>
+                <th scope="col" style="color: rgb(0, 255, 13);">Recovered</th>
+                <th scope="col" style="color: rgb(1, 174, 180);">Active</th>
+                <th scope="col" style="color: rgb(255, 51, 0);">Deaths</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let country of globalData; index as i">
+                <td>
+                  <img
+                    width="20"
+                    height="20"
+                    src="{{ country.flagUrl }}"
+                    alt="..."
+                  />
+                  <span class="m-1">{{ country.country }}</span>
+                </td>
+                <td style="color: blue; font-weight: bold;">
+                  {{ numberWithCommas(country.confirmed) }}
+                </td>
+                <td style="color: rgb(0, 255, 13); font-weight: bold;">
+                  {{ numberWithCommas(country.recovered) }}
+                </td>
+                <td style="color: rgb(1, 174, 180); font-weight: bold;">
+                  {{ numberWithCommas(country.active) }}
+                </td>
+                <td style="color: rgb(255, 51, 0);">
+                  {{ numberWithCommas(country.deaths) }}
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col" style="color: blue;">Confirmed</th>
+                <th scope="col" style="color: rgb(0, 255, 13);">Recovered</th>
+                <th scope="col" style="color: rgb(1, 174, 180);">Active</th>
+                <th scope="col" style="color: rgb(255, 51, 0);">Deaths</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-countrie></app-countrie>
+<app-india-dashbord></app-india-dashbord>
+
+<div class="card text-center mt-5">
+  <div class="card-footer text-muted">
+    © Copyright Cakesoft. All Rights Reserved
+  </div>
+</div>

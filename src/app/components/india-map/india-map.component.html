@@ -1,0 +1,73 @@
+<div class="containt mb-3">
+  <div class="ui form">
+    <div class="Inline fields">
+      <label for="fruit">Select Case Type : </label>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #confirmedi
+            type="radio"
+            id="confirmedi"
+            value="confirmedi"
+            name="casetype"
+            checked=""
+            tabindex="0"
+            class="form-check-input"
+            style="color: blue;"
+            (click)="updateChart(confirmedi.value)"
+          />
+          <label for="confirmedi" style="color: blue;">Confirmed</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #recoveredi
+            type="radio"
+            id="recoveredi"
+            value="recoveredi"
+            name="casetype"
+            tabindex="0"
+            class="hidden"
+            (click)="updateChart(recoveredi.value)"
+          />
+          <label for="recoveredi" style="color: rgb(0, 255, 13);"
+            >Recovered</label
+          >
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #activei
+            type="radio"
+            id="activei"
+            value="activei"
+            name="casetype"
+            tabindex="0"
+            class="hidden"
+            (click)="updateChart(activei.value)"
+          />
+          <label for="activei" style="color: rgb(1, 174, 180);">Active</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input
+            #deathsi
+            type="radio"
+            id="deathsi"
+            value="deathsi"
+            name="casetype"
+            tabindex="0"
+            class="hidden"
+            (click)="updateChart(deathsi.value)"
+          />
+          <label for="deathsi" style="color: rgb(255, 51, 0);">Deaths</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="map" id="indiamap"></div>

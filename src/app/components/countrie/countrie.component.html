@@ -1,0 +1,45 @@
+<div class="containt mt-5">
+  <div class="header">
+    <h3 class="heding">Covid-19 Tracker Country Wise</h3>
+  </div>
+
+  <div class="card shadow mb-3">
+    <div class="form-group col-lg-5 mx-auto">
+      <label for="country">Select Country</label>
+      <select
+        name=""
+        id="country"
+        class="form-control"
+        #input
+        (change)="updateValues(input.value)"
+      >
+        <option *ngFor="let country of countries" value="{{ country }}">{{
+          country
+        }}</option>
+      </select>
+    </div>
+  </div>
+
+  <app-dashbord-card
+    [totalConfirmed]="totalConfirmed"
+    [totalRecovered]="totalRecovered"
+    [totalActive]="totalActive"
+    [totalDeaths]="totalDeaths"
+  ></app-dashbord-card>
+</div>
+
+<div class="containt mt-5">
+  <div class="card-deck">
+    <div class="card shadow">
+      <div class="card-body">
+        <google-chart
+          class="chart"
+          [title]="selectedCounty"
+          [type]="chart.AreaChart"
+          [data]="AreaChartData"
+          [options]="chart.options"
+        ></google-chart>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,164 @@
+<div class="containt mt-5">
+  <div class="header">
+    <h3 class="heding">Covid-19 India Tracker</h3>
+  </div>
+</div>
+<div class="containt mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="ui form">
+        <div class="Inline fields">
+          <label for="fruit">Select Case Type : </label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #con
+                type="radio"
+                id="con"
+                value="con"
+                name="casetype"
+                checked=""
+                tabindex="0"
+                class="form-check-input"
+                style="color: blue;"
+                (click)="updateChart(con.value)"
+              />
+              <label for="con" style="color: blue;">Confirmed</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #rec
+                type="radio"
+                id="rec"
+                value="rec"
+                name="casetype"
+                tabindex="0"
+                class="hidden"
+                (click)="updateChart(rec.value)"
+              />
+              <label for="rec" style="color: rgb(0, 255, 13);">Recovered</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #act
+                type="radio"
+                id="act"
+                value="act"
+                name="casetype"
+                tabindex="0"
+                class="hidden"
+                (click)="updateChart(act.value)"
+              />
+              <label for="act" style="color: rgb(1, 174, 180);">Active</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input
+                #dea
+                type="radio"
+                id="dea"
+                value="dea"
+                name="casetype"
+                tabindex="0"
+                class="hidden"
+                (click)="updateChart(dea.value)"
+              />
+              <label for="dea" style="color: rgb(255, 51, 0);">Deaths</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="containt mt-2">
+  <div class="card-deck">
+    <div class="card shadow" style="width: auto;">
+      <div class="card-body">
+        <google-chart
+          class="chart"
+          [title]="chart.PieChart_title"
+          [type]="chart.PieChart"
+          [data]="dataTable"
+          [options]="chart.options"
+        ></google-chart>
+      </div>
+    </div>
+    <div class="card shadow">
+      <div class="card-body" style="width: auto;">
+        <google-chart
+          class="chart"
+          [title]="chart.ColumnChart_title"
+          [type]="chart.ColumnChart"
+          [data]="dataTable"
+          [options]="chart.options"
+        ></google-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="containt mt-5">
+  <div class="row">
+    <div class="card shadow col-sm-7 col-12 mt-2" style="width: auto;">
+      <div class="card-body">
+        <app-india-map></app-india-map>
+      </div>
+    </div>
+    <div class="card shadow col-sm-5 col-12 mt-2" style="width: auto;">
+      <div class="card-body">
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+          <table class="table table-bordered table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">State</th>
+                <th scope="col" style="color: blue;">Confirmed</th>
+                <th scope="col" style="color: rgb(0, 255, 13);">Recovered</th>
+                <th scope="col" style="color: rgb(1, 174, 180);">Active</th>
+                <th scope="col" style="color: rgb(255, 51, 0);">Deaths</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let country of globalData; index as i">
+                <td>
+                  <img
+                    width="20"
+                    height="20"
+                    src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
+                    alt="..."
+                  />
+                  <span class="m-1">{{ country.state }}</span>
+                </td>
+                <td style="color: blue; font-weight: bold;">
+                  {{ numberWithCommas(country.confirmed) }}
+                </td>
+                <td style="color: rgb(0, 255, 13); font-weight: bold;">
+                  {{ numberWithCommas(country.recovered) }}
+                </td>
+                <td style="color: rgb(1, 174, 180); font-weight: bold;">
+                  {{ numberWithCommas(country.active) }}
+                </td>
+                <td style="color: rgb(255, 51, 0);">
+                  {{ numberWithCommas(country.deaths) }}
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col" style="color: blue;">Confirmed</th>
+                <th scope="col" style="color: rgb(0, 255, 13);">Recovered</th>
+                <th scope="col" style="color: rgb(1, 174, 180);">Active</th>
+                <th scope="col" style="color: rgb(255, 51, 0);">Deaths</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

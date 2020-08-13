@@ -1,0 +1,12 @@
+.heding {
+  margin: 20px;
+  text-align: center;
+}
+.containt {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.chart {
+  width: 100%;
+  min-height: 450px;
+}

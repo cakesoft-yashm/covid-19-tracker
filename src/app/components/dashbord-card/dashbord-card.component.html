@@ -1,0 +1,77 @@
+<div class="card-deck">
+  <div
+    class="card shadow"
+    style="border-bottom: 3px solid blue; border-radius: 10px;"
+  >
+    <div class="card-body">
+      <div class="lable">
+        <div class="header">
+          Confirmed
+        </div>
+        <div class="value" style="color: blue;">
+          {{ transform(totalConfirmed, 0) }}
+        </div>
+        <div class="value__1">
+          <p>{{ numberWithCommas(totalConfirmed) }} Total</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="card shadow"
+    style="border-bottom: 3px solid rgb(0, 255, 13); border-radius: 10px;"
+  >
+    <div class="card-body">
+      <div class="lable">
+        <div class="header">
+          Recovered
+        </div>
+        <div class="value" style="color: rgb(0, 255, 13);">
+          {{ transform(totalRecovered, 0) }}
+        </div>
+        <div class="value__1">
+          <p>{{ numberWithCommas(totalRecovered) }} Total</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="card shadow"
+    style="border-bottom: 3px solid rgb(1, 174, 180); border-radius: 10px;"
+  >
+    <div class="card-body">
+      <div class="lable">
+        <div class="header">
+          Active
+        </div>
+        <div class="value" style="color: rgb(1, 174, 180);">
+          {{ transform(totalActive, 0) }}
+        </div>
+        <div class="value__1">
+          <p>{{ numberWithCommas(totalActive) }} Total</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="card shadow"
+    style="border-bottom: 3px solid rgb(255, 51, 0); border-radius: 10px;"
+  >
+    <div class="card-body">
+      <div class="lable">
+        <div class="header">
+          Deaths
+        </div>
+        <div class="value" style="color: rgb(255, 51, 0);">
+          {{ transform(totalDeaths, 0) }}
+        </div>
+        <div class="value__1">
+          <p>{{ numberWithCommas(totalDeaths) }} Total</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
