@@ -25,9 +25,11 @@ export class DataServiceService {
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    dd = parseInt(dd) - 1 + '';
+    dd = parseInt(dd) - 2 + '';
     let date = mm + '-' + dd + '-' + yyyy;
     this.globalDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${date}.csv`;
+
+    console.log(this.globalDataUrl);
   }
 
   getDateWiseData() {
